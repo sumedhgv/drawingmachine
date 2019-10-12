@@ -5,20 +5,38 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
 <script src="sketch.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
   <h1>Drawing Machine</h1>
-  <p>Press "s' to save"</p>
+  <p>Press 's' to save"</p>
+  <p>Press 'v' to erase"</p>
 
 
-  <div id="background">
-    <div id="box">
-        <div class="title">TITLE OF WEBSITE</div>
-        <div class="text" id="text-box">Text corresponding to the specfic background shown.</div>
-        <div class="button">
-            <button type="button" id="my-button">Randomizing button</button>
-        </div>
-    </div>
-</div>
+  <div id="background_cycler mybutton" style="display: block;">
+  </div>
+
+  <script type="text/javascript">
+  $('#background_cycler').hide(); //hide the background while the images load, ready to fade in later
+  </script>
+
+  <img class="active" src="images/space1.jpg" alt=""/>
+  <img src="images/space2.jpg" alt=""   />
+  <img src="images/space4.jpg" alt=""/>
+  <img src="images/space5.jpg" alt=""  />
+  </div>
+
+  <div class="background-image toggle-image space1.jpg show"></div>
+  <div class="background-image toggle-image space2.jpg"></div>
+  <div class="background-image toggle-image space4.jpg"></div>
+  <div class="background-image toggle-image space5.jpg"></div>
+
+
+  <div id="outer_wrap">
+  <div id="wrap">
+  <div id="wrap_background"></div>
+
+
 
 </body></html>
