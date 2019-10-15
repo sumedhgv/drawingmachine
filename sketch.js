@@ -1,9 +1,13 @@
 //let noiseOffset = 0.0;
 //let strokeWidth = 5;
+var speed = 0;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth + 500, windowHeight + 520);
+  colorMode(HSB);
+  speed = 0;
   //background(50, 120, 250);
+  cycleBackgrounds();
 
 }
 
@@ -13,21 +17,35 @@ function draw() {
   //noiseOffset += 0.5;
   //strokeWidth = noise(noiseOffset) * 100;
 if (mouseIsPressed) {
-  //stroke(map(mouseX, 100, 600, 45, 200, true), map(mouseX, 34, 600, 220, 200, true))
+  stroke(map(mouseX, 100, 600, 45, 200, true), map(mouseX, 34, 600, 220, 200, true))
 
   variableEllipse(mouseX, mouseY, pmouseX, pmouseY);
-fill( random(255), random(255), random(255), random(255));
+  fill( random(255), random(255), random(255), random(255));
 
 
 }
 
 
 function variableEllipse(x, y, px, py) {
-  let speed = abs(x - px) + abs(y - py);
-  stroke(speed);
-  ellipse(x, y, speed, speed);
+  let newSpeed = abs(x - px) + abs(y - py);
+  // console.log(speed);
+  if (newSpeed > speed *2) {
+    stroke(speed);
+    // drawGradient(x, y, speed);
+    ellipse(x, y, speed, speed);
+  }
+   speed = newSpeed;
 }
 
+}
+
+function drawGradient(x, y, radius) {
+  let h = random(0, 360);
+  for (let r = radius; r > 0; --r) {
+    fill(h, 90, 90);
+    ellipse(x, y, r, r);
+    h = (h + 1) % 360;
+  }
 }
 
 function keyTyped() {
@@ -59,6 +77,6 @@ function cycleBackgrounds() {
 };
 
 // Document Ready.
-$(function () {
-	cycleBackgrounds();
-});
+// $(function () {
+// 	cycleBackgrounds();
+// });
