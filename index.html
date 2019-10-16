@@ -1,42 +1,65 @@
-<!DOCTYPE html><html><head>
-    <script src="p5.js"></script>
-    <script src="p5.dom.min.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
-<script src="sketch.js"></script>
+<!DOCTYPE html>
+<html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
-  <body>
-  <h1>Drawing Machine</h1>
+<head>
+  <script src="p5.js"></script>
+  <script src="p5.dom.min.js"></script>
+  <script src="p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <script src="sketch.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script>
+  // $(function(){
+    //Array of images which you want to show: Use path you want.
+    var images = new Array('images/space1.jpg', 'images/space2.jpg', 'images/space4.jpg', 'images/space5.jpg');
+    var nextimage = 0;
+
+    function doSlideshow() {
+      if (nextimage >= images.length) {
+        nextimage = 0;
+      }
+      $('.bg').css('background-image', 'url("' + images[nextimage++] + '")');
+      }
+      doSlideshow();
+      // });
+  </script>
+
+</head>
+
+<body>
+  <h1>Planet Drawing Machine</h1>
   <p>Press 's' to save"</p>
   <p>Press 'v' to erase"</p>
+  <p>Press 'g' to travel to a different part of the universe"</p>
 
-
-  <div id="background_cycler mybutton" style="display: block;">
+  <!-- <div id="background_cycler mybutton" style="display: block;">
   </div>
 
   <script type="text/javascript">
   $('#background_cycler').hide(); //hide the background while the images load, ready to fade in later
-  </script>
+  </script> -->
 
-  <img class="active" src="images/space1.jpg" alt=""/>
+  <!-- <img class="active" src="images/space1.jpg" alt=""/>
   <img src="images/space2.jpg" alt=""   />
   <img src="images/space4.jpg" alt=""/>
   <img src="images/space5.jpg" alt=""  />
-  </div>
+  </div> -->
 
-  <div class="background-image toggle-image space1.jpg show"></div>
-  <div class="background-image toggle-image space2.jpg"></div>
-  <div class="background-image toggle-image space4.jpg"></div>
-  <div class="background-image toggle-image space5.jpg"></div>
+  <div class="bg"> </div>
+  <!-- <div class="bg" style="background: url(images/space2.jpg);"> </div>
+  <div class="bg" style="background: url(images/space4.jpg);"> </div>
+  <div class="bg" style="background: url(images/space5.jpg);"> </div> -->
 
 
-  <div id="outer_wrap">
+  <!-- <div id="outer_wrap">
   <div id="wrap">
-  <div id="wrap_background"></div>
+  <div id="wrap_background"></div> -->
 
 
 
-</body></html>
+</body>
+
+</html>
